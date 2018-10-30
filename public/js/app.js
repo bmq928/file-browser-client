@@ -19885,7 +19885,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".sidebar .tree {\n  width: 25%;\n  height: 100%;\n  min-height: 20px;\n  margin-bottom: 20px;\n  background-color: #fbfbfb;\n  border: 1px solid #999;\n  -webkit-border-radius: 4px;\n  -moz-border-radius: 4px;\n  border-radius: 4px;\n  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);\n  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);\n  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05); }\n\n.sidebar .tree li {\n  list-style-type: none;\n  margin: 0;\n  padding: 10px 5px 0 5px;\n  position: relative; }\n\n.sidebar .tree li::before,\n.sidebar .tree li::after {\n  content: '';\n  left: -20px;\n  position: absolute;\n  right: auto; }\n\n.sidebar .tree li::before {\n  border-left: 1px solid #999;\n  bottom: 50px;\n  height: 100%;\n  top: 0;\n  width: 1px; }\n\n.sidebar .tree li::after {\n  border-top: 1px solid #999;\n  height: 20px;\n  top: 25px;\n  width: 25px; }\n\n.sidebar .tree li span:not(.glyphicon) {\n  -moz-border-radius: 5px;\n  -webkit-border-radius: 5px;\n  border-radius: 5px;\n  display: inline-block;\n  padding: 4px 9px;\n  text-decoration: none; }\n\n.sidebar .tree li.parent_li > span:not(.glyphicon) {\n  cursor: pointer; }\n\n.sidebar .tree > ul > li::before,\n.sidebar .tree > ul > li::after {\n  border: 0; }\n\n.sidebar .tree li:last-child::before {\n  height: 30px; }\n", ""]);
+exports.push([module.i, ".sidebar {\n  height: 100%; }\n  .sidebar .tree {\n    position: fixed;\n    width: 25%;\n    height: 100%;\n    min-height: 20px;\n    margin-bottom: 20px;\n    background-color: #fbfbfb;\n    border: 1px solid #999;\n    -webkit-border-radius: 4px;\n    -moz-border-radius: 4px;\n    border-radius: 4px;\n    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);\n    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);\n    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05); }\n  .sidebar .tree .title:hover {\n    text-decoration: underline; }\n  .sidebar .tree li {\n    list-style-type: none;\n    margin: 0;\n    padding: 10px 5px 0 5px;\n    position: relative; }\n  .sidebar .tree li::before,\n  .sidebar .tree li::after {\n    content: '';\n    left: -20px;\n    position: absolute;\n    right: auto; }\n  .sidebar .tree li::before {\n    border-left: 1px solid #999;\n    bottom: 50px;\n    height: 100%;\n    top: 0;\n    width: 1px; }\n  .sidebar .tree li::after {\n    border-top: 1px solid #999;\n    height: 20px;\n    top: 25px;\n    width: 25px; }\n  .sidebar .tree li span:not(.glyphicon) {\n    -moz-border-radius: 5px;\n    -webkit-border-radius: 5px;\n    border-radius: 5px;\n    display: inline-block;\n    padding: 4px 9px;\n    text-decoration: none; }\n  .sidebar .tree li.parent_li > span:not(.glyphicon) {\n    cursor: pointer; }\n  .sidebar .tree > ul > li::before,\n  .sidebar .tree > ul > li::after {\n    border: 0; }\n  .sidebar .tree li:last-child::before {\n    height: 30px; }\n", ""]);
 
 // exports
 
@@ -20611,13 +20611,23 @@ function controller() {
     init();
   };
 
+  self.toggleShowSubtree = function () {
+    if (self.showSub) {
+      self._files = [];
+      self._folders = [];
+    } else {
+      self._files = self.files;
+      self._folders = self.folders;
+    }
+
+    self.showSub = !self.showSub;
+  };
+
   function preProcess() {
-    console.log(self.rootIsFile);
-    console.log(self.files);
-    console.log(self.folders);
-    console.log({
-      self
-    });
+    //for filter
+    self.showSub = true;
+    self._files = self.files;
+    self._folders = self.folders;
   }
 
   function init() {}
@@ -20639,7 +20649,7 @@ function controller() {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=node> <ul> <li class=parent_li> <img ng-if=self.rootIsFile src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD4SURBVEhLY6ArCJ9yNjZ3waWzxUsunySEE2eefxEz7cIsqFbiAFBT9f1XX/8TA/q33/vfvvne39jp52ZCtRMGpFpw/8M/0iwhxwIQ7iDWEnItINoSUiyYALRgyfEXKDhm2rl/oRNPlkONwwSkWPDy44//t55/QcEHrr35HzvtbBvUOExAigXYAEgvyAyocZgA3YKTd97/33r+JV4MUgMDJFvw7P13jGBAxyA1MECyBRvOPP8/ccddrPjuS8ygJNkCUgFVfQDDIDUwMLR8QJU4oHkqonk+IBWMWkAQELQgetq5+KLFl6+UL796nhwM0gsyA2ocPQADAwDU3EYdLcmnXgAAAABJRU5ErkJggg==\"> <img ng-if=!self.rootIsFile src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACuSURBVEhL7Y3BCcJQEES3AM82YNB0oliTYCeaBjxbgQFThrGMsGsCEwZkLmYFPeTBO/3Z923mf/CT7f1sz6gs3vXKjphNp4+3Kj6a/iQui4i6iGjKlF4XnV+XB2TJN+Kjflt1yBI1zIgsUaOMyBI1yogsUaOMyBI1yogsUaOMyBI1yogsUaOMyBI1yogsUaOMyBJvylYNp+j3zQNZ4vf1bnhQB584NHq3yM78HLMXluFeODYE94QAAAAASUVORK5CYII=\"> <span style=padding:0 title=Verkleinern ng-bind=self.rootName></span> <ul style=padding:0> <node ng-repeat=\"t in self.folders track by $index\" root-name=t.rootName files=t.files folders=t.folders> </node> <node ng-repeat=\"t in self.folders track by $index\" root-name=t.rootName files=t.files folders=t.folders> </node> </ul> </li> </ul> </div> ";
+module.exports = "<div class=node> <ul> <li class=parent_li style=cursor:pointer> <img style=margin-bottom:5px ng-if=!self.showSub ng-click=self.toggleShowSubtree() src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACKSURBVChTY0AGMVMv+EKZxIG+HQ82Nm64M43h/39GqBB+MOfw81VXX/7627Lp7oLQVauYocK4AUjD/Q///t94/ftfx5b7K4xnnmGFSmEHMA0gfPvtn//d2+5v9Ji4jR0qjQmQNYDw3Xd///fvfLg9dMoVHqgSVECRBpKcRJKnSQpWkiOOcNJgYAAAzKiZs4ynws8AAAAASUVORK5CYII=\"> <img style=margin-bottom:5px ng-if=self.showSub ng-click=self.toggleShowSubtree() src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABmSURBVChTvZDRDUBAEAWPFrSiJDWJlrQiWhDeyBG3t5v7M8kkYsfHk35hlIc8G9LQ3izSi77SvAxyl16I3GgKJunFyK2il6u0Me+4udgfUAyNmOXzAc9NGLdlq6ERjHSHRnRZQ0oXOGAyHexcPRUAAAAASUVORK5CYII=\"> <img ng-if=self.rootIsFile src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD4SURBVEhLY6ArCJ9yNjZ3waWzxUsunySEE2eefxEz7cIsqFbiAFBT9f1XX/8TA/q33/vfvvne39jp52ZCtRMGpFpw/8M/0iwhxwIQ7iDWEnItINoSUiyYALRgyfEXKDhm2rl/oRNPlkONwwSkWPDy44//t55/QcEHrr35HzvtbBvUOExAigXYAEgvyAyocZgA3YKTd97/33r+JV4MUgMDJFvw7P13jGBAxyA1MECyBRvOPP8/ccddrPjuS8ygJNkCUgFVfQDDIDUwMLR8QJU4oHkqonk+IBWMWkAQELQgetq5+KLFl6+UL796nhwM0gsyA2ocPQADAwDU3EYdLcmnXgAAAABJRU5ErkJggg==\"> <img ng-if=!self.rootIsFile src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACuSURBVEhL7Y3BCcJQEES3AM82YNB0oliTYCeaBjxbgQFThrGMsGsCEwZkLmYFPeTBO/3Z923mf/CT7f1sz6gs3vXKjphNp4+3Kj6a/iQui4i6iGjKlF4XnV+XB2TJN+Kjflt1yBI1zIgsUaOMyBI1yogsUaOMyBI1yogsUaOMyBI1yogsUaOMyBI1yogsUaOMyBJvylYNp+j3zQNZ4vf1bnhQB584NHq3yM78HLMXluFeODYE94QAAAAASUVORK5CYII=\"> <span class=title style=padding:0 title=Verkleinern ng-bind=self.rootName> </span> <ul style=padding:0> <node ng-repeat=\"t in self._folders track by $index\" root-name=t.rootName files=t.files folders=t.folders> </node> <node ng-repeat=\"t in self._files track by $index\" root-name=t.rootName files=t.files folders=t.folders> </node> </ul> </li> </ul> </div> ";
 
 /***/ }),
 

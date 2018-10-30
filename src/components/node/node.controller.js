@@ -12,11 +12,23 @@ function controller() {
     init()
   }
 
+  self.toggleShowSubtree = function() {
+    if (self.showSub) {
+      self._files = []
+      self._folders = []
+    } else {
+      self._files = self.files
+      self._folders = self.folders
+    }
+
+    self.showSub = !self.showSub
+  }
+
   function preProcess() {
-    console.log(self.rootIsFile)
-    console.log(self.files)
-    console.log(self.folders)
-    console.log({self})
+    //for filter
+    self.showSub = true
+    self._files = self.files
+    self._folders = self.folders
   }
 
   function init() {}

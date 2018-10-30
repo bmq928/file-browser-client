@@ -1,0 +1,27 @@
+<div class="node">
+  <ul>
+    <li class="parent_li">
+      <img ng-if="self.rootIsFile" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD4SURBVEhLY6ArCJ9yNjZ3waWzxUsunySEE2eefxEz7cIsqFbiAFBT9f1XX/8TA/q33/vfvvne39jp52ZCtRMGpFpw/8M/0iwhxwIQ7iDWEnItINoSUiyYALRgyfEXKDhm2rl/oRNPlkONwwSkWPDy44//t55/QcEHrr35HzvtbBvUOExAigXYAEgvyAyocZgA3YKTd97/33r+JV4MUgMDJFvw7P13jGBAxyA1MECyBRvOPP8/ccddrPjuS8ygJNkCUgFVfQDDIDUwMLR8QJU4oHkqonk+IBWMWkAQELQgetq5+KLFl6+UL796nhwM0gsyA2ocPQADAwDU3EYdLcmnXgAAAABJRU5ErkJggg==">
+      <img ng-if="!self.rootIsFile" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACuSURBVEhL7Y3BCcJQEES3AM82YNB0oliTYCeaBjxbgQFThrGMsGsCEwZkLmYFPeTBO/3Z923mf/CT7f1sz6gs3vXKjphNp4+3Kj6a/iQui4i6iGjKlF4XnV+XB2TJN+Kjflt1yBI1zIgsUaOMyBI1yogsUaOMyBI1yogsUaOMyBI1yogsUaOMyBI1yogsUaOMyBJvylYNp+j3zQNZ4vf1bnhQB584NHq3yM78HLMXluFeODYE94QAAAAASUVORK5CYII=">
+      <span style="padding:0" title="Verkleinern" ng-bind="self.rootName"></span>
+      <ul style="padding:0">
+        <!-- folder -->
+        <node 
+          ng-repeat="t in self.folders track by $index"
+          root-name="t.rootName"
+          files="t.files"
+          folders="t.folders">
+        </node>
+
+        <!-- file -->
+        <node 
+          ng-repeat="t in self.folders track by $index"
+          root-name="t.rootName"
+          files="t.files"
+          folders="t.folders">
+        </node>
+      </ul>
+    </li>
+  </ul>
+</div>
+

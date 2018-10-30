@@ -21,7 +21,8 @@
         class="title"
         style="padding:0" 
         title="Verkleinern" 
-        ng-bind="self.rootName">
+        ng-bind="self.rootName"
+        ng-click="self._itemClick()">
       </span>
       <ul style="padding:0">
         <!-- folder -->
@@ -29,7 +30,8 @@
           ng-repeat="t in self._folders track by $index"
           root-name="t.rootName"
           files="t.files"
-          folders="t.folders">
+          folders="t.folders"
+          item-click="self.itemClick">
         </node>
 
         <!-- file -->
@@ -37,7 +39,8 @@
           ng-repeat="t in self._files track by $index"
           root-name="t.rootName"
           files="t.files"
-          folders="t.folders">
+          folders="t.folders"
+          item-click="self.itemClick">
         </node>
       </ul>
     </li>

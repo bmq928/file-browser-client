@@ -24,6 +24,15 @@ function controller() {
     self.showSub = !self.showSub
   }
 
+  self._itemClick = function() {
+    const item = {
+      files: self.files,
+      folders: self.folders
+    }
+
+    self.itemClick(item)
+  }
+
   function preProcess() {
     //for filter
     self.showSub = true
@@ -38,5 +47,6 @@ export default new ComponentSchema(name, template, controller, {
   rootIsFile: '<',
   rootName: '<',
   files: '<',
-  folders: '<'
+  folders: '<',
+  itemClick: '<'
 })

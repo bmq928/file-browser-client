@@ -1,11 +1,20 @@
-<div id="main-wrapper">
-    <sidebar
-     handle-view-click="self.changeView" 
-     cur-view="self.curView"></sidebar>
-    <div class="page-wrapper">
+<div id="main-wrapper" class="row">
+    <div class="col-lg-3">
+        <sidebar 
+         item-select-handle="self.itemSelectHandle" 
+         root-node="self.rootNode">
+        </sidebar>
+    </div>
+    
+    <div class="main" style="margin-left: 26%;width: 75%;">
+        <navbar></navbar>
+        <tools></tools>
+        <explorer></explorer>
+    </div>
+
+    <!-- <div class="page-wrapper">
         <div class="container-fluid">
             <navbar cur-view="self.curView"></navbar>
-            <div ui-view></div>
         </div>
-    </div>
+    </div> -->
 </div>

@@ -19873,6 +19873,25 @@ module.exports = angular;
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js!./node_modules/sass-loader/lib/loader.js!./src/components/explorer/explorer.scss":
+/*!******************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/sass-loader/lib/loader.js!./src/components/explorer/explorer.scss ***!
+  \******************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js!./node_modules/sass-loader/lib/loader.js!./src/components/sidebar/sidebar.scss":
 /*!****************************************************************************************************************!*\
   !*** ./node_modules/css-loader!./node_modules/sass-loader/lib/loader.js!./src/components/sidebar/sidebar.scss ***!
@@ -20536,19 +20555,37 @@ __webpack_require__.r(__webpack_exports__);
 
 const name = 'app';
 
+class Node {
+  constructor(rootName, rootIsFile = false, files = [], folders = []) {
+    this.rootIsFile = rootIsFile;
+    this.rootName = rootName;
+    this.files = files;
+    this.folders = folders;
+  }
+
+}
+
 function controller() {
   const self = this;
 
   self.$onInit = function () {
     preProcess();
+    init();
   };
 
-  self.changeView = function (view) {
-    self.curView = view;
+  self.itemSelectHandle = function (items) {
+    self.listFile = items.files;
+    self.listFolder = items.folders;
   };
 
   function preProcess() {
-    self.curView = 'api';
+    self.rootNode = {};
+    self.listFile = [];
+    self.listFolder = [];
+  }
+
+  function init() {
+    self.rootNode = self.rootNode = new Node('root', true, [new Node('sub', false, [new Node('sub-sub')])], [new Node('sub-sub', false, [new Node('sub-sub')], [new Node('sub-sub')]), new Node('sub-sub'), new Node('sub-sub')]);
   }
 }
 
@@ -20563,7 +20600,77 @@ function controller() {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=main-wrapper> <sidebar handle-view-click=self.changeView cur-view=self.curView></sidebar> <div class=page-wrapper> <div class=container-fluid> <navbar cur-view=self.curView></navbar> <div ui-view></div> </div> </div> </div>";
+module.exports = "<div id=main-wrapper class=row> <div class=col-lg-3> <sidebar item-select-handle=self.itemSelectHandle root-node=self.rootNode> </sidebar> </div> <div class=main style=margin-left:26%;width:75%> <navbar></navbar> <tools></tools> <explorer></explorer> </div> </div>";
+
+/***/ }),
+
+/***/ "./src/components/explorer/explorer.controller.js":
+/*!********************************************************!*\
+  !*** ./src/components/explorer/explorer.controller.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _libs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../libs */ "./src/libs/index.js");
+/* harmony import */ var _explorer_template_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./explorer.template.html */ "./src/components/explorer/explorer.template.html");
+/* harmony import */ var _explorer_template_html__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_explorer_template_html__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _explorer_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./explorer.scss */ "./src/components/explorer/explorer.scss");
+/* harmony import */ var _explorer_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_explorer_scss__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+const name = 'explorer';
+
+function controller() {
+  const self = this;
+
+  self.$onInit = function () {};
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (new _libs__WEBPACK_IMPORTED_MODULE_0__["ComponentSchema"](name, _explorer_template_html__WEBPACK_IMPORTED_MODULE_1___default.a, controller));
+
+/***/ }),
+
+/***/ "./src/components/explorer/explorer.scss":
+/*!***********************************************!*\
+  !*** ./src/components/explorer/explorer.scss ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader!../../../node_modules/sass-loader/lib/loader.js!./explorer.scss */ "./node_modules/css-loader/index.js!./node_modules/sass-loader/lib/loader.js!./src/components/explorer/explorer.scss");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./src/components/explorer/explorer.template.html":
+/*!********************************************************!*\
+  !*** ./src/components/explorer/explorer.template.html ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=explorer> kadsjfl </div>";
 
 /***/ }),
 
@@ -20579,10 +20686,54 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_app_controller__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app/app.controller */ "./src/components/app/app.controller.js");
 /* harmony import */ var _sidebar_sidebar_controller__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sidebar/sidebar.controller */ "./src/components/sidebar/sidebar.controller.js");
 /* harmony import */ var _node_node_controller__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node/node.controller */ "./src/components/node/node.controller.js");
+/* harmony import */ var _explorer_explorer_controller__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./explorer/explorer.controller */ "./src/components/explorer/explorer.controller.js");
+/* harmony import */ var _navbar_navbar_controller__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./navbar/navbar.controller */ "./src/components/navbar/navbar.controller.js");
+/* harmony import */ var _tools_tools_controller__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./tools/tools.controller */ "./src/components/tools/tools.controller.js");
 
 
 
-/* harmony default export */ __webpack_exports__["default"] = ([_app_app_controller__WEBPACK_IMPORTED_MODULE_0__["default"], _sidebar_sidebar_controller__WEBPACK_IMPORTED_MODULE_1__["default"], _node_node_controller__WEBPACK_IMPORTED_MODULE_2__["default"]]);
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ([_app_app_controller__WEBPACK_IMPORTED_MODULE_0__["default"], _sidebar_sidebar_controller__WEBPACK_IMPORTED_MODULE_1__["default"], _node_node_controller__WEBPACK_IMPORTED_MODULE_2__["default"], _explorer_explorer_controller__WEBPACK_IMPORTED_MODULE_3__["default"], _navbar_navbar_controller__WEBPACK_IMPORTED_MODULE_4__["default"], _tools_tools_controller__WEBPACK_IMPORTED_MODULE_5__["default"]]);
+
+/***/ }),
+
+/***/ "./src/components/navbar/navbar.controller.js":
+/*!****************************************************!*\
+  !*** ./src/components/navbar/navbar.controller.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _libs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../libs */ "./src/libs/index.js");
+/* harmony import */ var _navbar_template_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./navbar.template.html */ "./src/components/navbar/navbar.template.html");
+/* harmony import */ var _navbar_template_html__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_navbar_template_html__WEBPACK_IMPORTED_MODULE_1__);
+
+ // import './navbar.scss'
+
+const name = 'navbar';
+
+function controller() {
+  const self = this;
+
+  self.$onInit = function () {};
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (new _libs__WEBPACK_IMPORTED_MODULE_0__["ComponentSchema"](name, _navbar_template_html__WEBPACK_IMPORTED_MODULE_1___default.a, controller));
+
+/***/ }),
+
+/***/ "./src/components/navbar/navbar.template.html":
+/*!****************************************************!*\
+  !*** ./src/components/navbar/navbar.template.html ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=navbar> djsaflksjdl </div>";
 
 /***/ }),
 
@@ -20623,6 +20774,14 @@ function controller() {
     self.showSub = !self.showSub;
   };
 
+  self._itemClick = function () {
+    const item = {
+      files: self.files,
+      folders: self.folders
+    };
+    self.itemClick(item);
+  };
+
   function preProcess() {
     //for filter
     self.showSub = true;
@@ -20637,7 +20796,8 @@ function controller() {
   rootIsFile: '<',
   rootName: '<',
   files: '<',
-  folders: '<'
+  folders: '<',
+  itemClick: '<'
 }));
 
 /***/ }),
@@ -20649,7 +20809,7 @@ function controller() {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=node> <ul> <li class=parent_li style=cursor:pointer> <img style=margin-bottom:5px ng-if=!self.showSub ng-click=self.toggleShowSubtree() src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACKSURBVChTY0AGMVMv+EKZxIG+HQ82Nm64M43h/39GqBB+MOfw81VXX/7627Lp7oLQVauYocK4AUjD/Q///t94/ftfx5b7K4xnnmGFSmEHMA0gfPvtn//d2+5v9Ji4jR0qjQmQNYDw3Xd///fvfLg9dMoVHqgSVECRBpKcRJKnSQpWkiOOcNJgYAAAzKiZs4ynws8AAAAASUVORK5CYII=\"> <img style=margin-bottom:5px ng-if=self.showSub ng-click=self.toggleShowSubtree() src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABmSURBVChTvZDRDUBAEAWPFrSiJDWJlrQiWhDeyBG3t5v7M8kkYsfHk35hlIc8G9LQ3izSi77SvAxyl16I3GgKJunFyK2il6u0Me+4udgfUAyNmOXzAc9NGLdlq6ERjHSHRnRZQ0oXOGAyHexcPRUAAAAASUVORK5CYII=\"> <img ng-if=self.rootIsFile src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD4SURBVEhLY6ArCJ9yNjZ3waWzxUsunySEE2eefxEz7cIsqFbiAFBT9f1XX/8TA/q33/vfvvne39jp52ZCtRMGpFpw/8M/0iwhxwIQ7iDWEnItINoSUiyYALRgyfEXKDhm2rl/oRNPlkONwwSkWPDy44//t55/QcEHrr35HzvtbBvUOExAigXYAEgvyAyocZgA3YKTd97/33r+JV4MUgMDJFvw7P13jGBAxyA1MECyBRvOPP8/ccddrPjuS8ygJNkCUgFVfQDDIDUwMLR8QJU4oHkqonk+IBWMWkAQELQgetq5+KLFl6+UL796nhwM0gsyA2ocPQADAwDU3EYdLcmnXgAAAABJRU5ErkJggg==\"> <img ng-if=!self.rootIsFile src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACuSURBVEhL7Y3BCcJQEES3AM82YNB0oliTYCeaBjxbgQFThrGMsGsCEwZkLmYFPeTBO/3Z923mf/CT7f1sz6gs3vXKjphNp4+3Kj6a/iQui4i6iGjKlF4XnV+XB2TJN+Kjflt1yBI1zIgsUaOMyBI1yogsUaOMyBI1yogsUaOMyBI1yogsUaOMyBI1yogsUaOMyBJvylYNp+j3zQNZ4vf1bnhQB584NHq3yM78HLMXluFeODYE94QAAAAASUVORK5CYII=\"> <span class=title style=padding:0 title=Verkleinern ng-bind=self.rootName> </span> <ul style=padding:0> <node ng-repeat=\"t in self._folders track by $index\" root-name=t.rootName files=t.files folders=t.folders> </node> <node ng-repeat=\"t in self._files track by $index\" root-name=t.rootName files=t.files folders=t.folders> </node> </ul> </li> </ul> </div> ";
+module.exports = "<div class=node> <ul> <li class=parent_li style=cursor:pointer> <img style=margin-bottom:5px ng-if=!self.showSub ng-click=self.toggleShowSubtree() src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACKSURBVChTY0AGMVMv+EKZxIG+HQ82Nm64M43h/39GqBB+MOfw81VXX/7627Lp7oLQVauYocK4AUjD/Q///t94/ftfx5b7K4xnnmGFSmEHMA0gfPvtn//d2+5v9Ji4jR0qjQmQNYDw3Xd///fvfLg9dMoVHqgSVECRBpKcRJKnSQpWkiOOcNJgYAAAzKiZs4ynws8AAAAASUVORK5CYII=\"> <img style=margin-bottom:5px ng-if=self.showSub ng-click=self.toggleShowSubtree() src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABmSURBVChTvZDRDUBAEAWPFrSiJDWJlrQiWhDeyBG3t5v7M8kkYsfHk35hlIc8G9LQ3izSi77SvAxyl16I3GgKJunFyK2il6u0Me+4udgfUAyNmOXzAc9NGLdlq6ERjHSHRnRZQ0oXOGAyHexcPRUAAAAASUVORK5CYII=\"> <img ng-if=self.rootIsFile src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD4SURBVEhLY6ArCJ9yNjZ3waWzxUsunySEE2eefxEz7cIsqFbiAFBT9f1XX/8TA/q33/vfvvne39jp52ZCtRMGpFpw/8M/0iwhxwIQ7iDWEnItINoSUiyYALRgyfEXKDhm2rl/oRNPlkONwwSkWPDy44//t55/QcEHrr35HzvtbBvUOExAigXYAEgvyAyocZgA3YKTd97/33r+JV4MUgMDJFvw7P13jGBAxyA1MECyBRvOPP8/ccddrPjuS8ygJNkCUgFVfQDDIDUwMLR8QJU4oHkqonk+IBWMWkAQELQgetq5+KLFl6+UL796nhwM0gsyA2ocPQADAwDU3EYdLcmnXgAAAABJRU5ErkJggg==\"> <img ng-if=!self.rootIsFile src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACuSURBVEhL7Y3BCcJQEES3AM82YNB0oliTYCeaBjxbgQFThrGMsGsCEwZkLmYFPeTBO/3Z923mf/CT7f1sz6gs3vXKjphNp4+3Kj6a/iQui4i6iGjKlF4XnV+XB2TJN+Kjflt1yBI1zIgsUaOMyBI1yogsUaOMyBI1yogsUaOMyBI1yogsUaOMyBI1yogsUaOMyBJvylYNp+j3zQNZ4vf1bnhQB584NHq3yM78HLMXluFeODYE94QAAAAASUVORK5CYII=\"> <span class=title style=padding:0 title=Verkleinern ng-bind=self.rootName ng-click=self._itemClick()> </span> <ul style=padding:0> <node ng-repeat=\"t in self._folders track by $index\" root-name=t.rootName files=t.files folders=t.folders item-click=self.itemClick> </node> <node ng-repeat=\"t in self._files track by $index\" root-name=t.rootName files=t.files folders=t.folders item-click=self.itemClick> </node> </ul> </li> </ul> </div> ";
 
 /***/ }),
 
@@ -20672,33 +20832,15 @@ __webpack_require__.r(__webpack_exports__);
 
 const name = 'sidebar';
 
-class Node {
-  constructor(rootName, rootIsFile = false, files = [], folders = []) {
-    this.rootIsFile = rootIsFile;
-    this.rootName = rootName;
-    this.files = files;
-    this.folders = folders;
-  }
-
-}
-
 function controller() {
   const self = this;
-  self.rootNode = new Node('root', true, [new Node('sub', false, [new Node('sub-sub')])], [new Node('sub-sub', false, [new Node('sub-sub')], [new Node('sub-sub')]), new Node('sub-sub'), new Node('sub-sub')]);
-  console.log({
-    'self.rootNode': self.rootNode.folders
-  });
 
-  self.$onChanges = function ({
-    curView
-  }) {
-    self.curView = curView.currentValue;
-  };
+  self.$onInit = function () {};
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (new _libs__WEBPACK_IMPORTED_MODULE_0__["ComponentSchema"](name, _sidebar_template_html__WEBPACK_IMPORTED_MODULE_1___default.a, controller, {
-  handleViewClick: '<',
-  curView: '<'
+  rootNode: '<',
+  itemSelectHandle: '<'
 }));
 
 /***/ }),
@@ -20740,7 +20882,45 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = " <div class=sidebar> <div class=tree> <node root-is-file=self.rootNode.rootIsFile root-name=self.rootNode.rootName files=self.rootNode.files folders=self.rootNode.folders> </node> </div> </div>";
+module.exports = " <div class=sidebar> <div class=tree> <node root-is-file=self.rootNode.rootIsFile root-name=self.rootNode.rootName files=self.rootNode.files folders=self.rootNode.folders item-click=self.itemSelectHandle> </node> </div> </div>";
+
+/***/ }),
+
+/***/ "./src/components/tools/tools.controller.js":
+/*!**************************************************!*\
+  !*** ./src/components/tools/tools.controller.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _libs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../libs */ "./src/libs/index.js");
+/* harmony import */ var _tools_template_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tools.template.html */ "./src/components/tools/tools.template.html");
+/* harmony import */ var _tools_template_html__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tools_template_html__WEBPACK_IMPORTED_MODULE_1__);
+
+ // import './tools.scss'
+
+const name = 'tools';
+
+function controller() {
+  const self = this;
+
+  self.$onInit = function () {};
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (new _libs__WEBPACK_IMPORTED_MODULE_0__["ComponentSchema"](name, _tools_template_html__WEBPACK_IMPORTED_MODULE_1___default.a, controller));
+
+/***/ }),
+
+/***/ "./src/components/tools/tools.template.html":
+/*!**************************************************!*\
+  !*** ./src/components/tools/tools.template.html ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=tools> sdlkajf </div>";
 
 /***/ }),
 

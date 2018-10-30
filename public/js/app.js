@@ -19892,6 +19892,25 @@ exports.push([module.i, "", ""]);
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js!./node_modules/sass-loader/lib/loader.js!./src/components/navbar/navbar.scss":
+/*!**************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/sass-loader/lib/loader.js!./src/components/navbar/navbar.scss ***!
+  \**************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".navbar * {\n  box-sizing: border-box; }\n\n.navbar body {\n  margin: 0;\n  font-family: Arial, Helvetica, sans-serif; }\n\n.navbar .topnav {\n  overflow: hidden;\n  background-color: #e9e9e9; }\n\n.navbar .topnav a {\n  float: left;\n  display: block;\n  color: black;\n  text-align: center;\n  padding: 14px 16px;\n  text-decoration: none;\n  font-size: 17px; }\n\n.navbar .topnav a:hover {\n  background-color: #ddd;\n  color: black; }\n\n.navbar .topnav a.active {\n  background-color: #2196f3;\n  color: white; }\n\n.navbar .topnav .search-container {\n  margin-left: 5px;\n  float: left; }\n\n.navbar .topnav input[type='text'] {\n  padding: 6px;\n  margin-top: 8px;\n  font-size: 17px;\n  border: none; }\n\n.navbar .topnav .search-container button {\n  float: right;\n  padding: 6px 10px;\n  margin-top: 8px;\n  margin-right: 16px;\n  background: #ddd;\n  font-size: 17px;\n  border: none;\n  cursor: pointer; }\n\n.navbar .topnav .search-container button:hover {\n  background: #ccc; }\n\n@media screen and (max-width: 600px) {\n  .navbar .topnav .search-container {\n    float: none; }\n  .navbar .topnav a,\n  .navbar .topnav input[type='text'],\n  .navbar .topnav .search-container button {\n    float: none;\n    display: block;\n    text-align: left;\n    width: 100%;\n    margin: 0;\n    padding: 14px; }\n  .navbar .topnav input[type='text'] {\n    border: 1px solid #ccc; } }\n", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js!./node_modules/sass-loader/lib/loader.js!./src/components/sidebar/sidebar.scss":
 /*!****************************************************************************************************************!*\
   !*** ./node_modules/css-loader!./node_modules/sass-loader/lib/loader.js!./src/components/sidebar/sidebar.scss ***!
@@ -19905,6 +19924,25 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 // module
 exports.push([module.i, ".sidebar {\n  height: 100%; }\n  .sidebar .tree {\n    position: fixed;\n    width: 25%;\n    height: 100%;\n    min-height: 20px;\n    margin-bottom: 20px;\n    background-color: #fbfbfb;\n    border: 1px solid #999;\n    -webkit-border-radius: 4px;\n    -moz-border-radius: 4px;\n    border-radius: 4px;\n    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);\n    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);\n    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05); }\n  .sidebar .tree .title:hover {\n    text-decoration: underline; }\n  .sidebar .tree li {\n    list-style-type: none;\n    margin: 0;\n    padding: 10px 5px 0 5px;\n    position: relative; }\n  .sidebar .tree li::before,\n  .sidebar .tree li::after {\n    content: '';\n    left: -20px;\n    position: absolute;\n    right: auto; }\n  .sidebar .tree li::before {\n    border-left: 1px solid #999;\n    bottom: 50px;\n    height: 100%;\n    top: 0;\n    width: 1px; }\n  .sidebar .tree li::after {\n    border-top: 1px solid #999;\n    height: 20px;\n    top: 25px;\n    width: 25px; }\n  .sidebar .tree li span:not(.glyphicon) {\n    -moz-border-radius: 5px;\n    -webkit-border-radius: 5px;\n    border-radius: 5px;\n    display: inline-block;\n    padding: 4px 9px;\n    text-decoration: none; }\n  .sidebar .tree li.parent_li > span:not(.glyphicon) {\n    cursor: pointer; }\n  .sidebar .tree > ul > li::before,\n  .sidebar .tree > ul > li::after {\n    border: 0; }\n  .sidebar .tree li:last-child::before {\n    height: 30px; }\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/sass-loader/lib/loader.js!./src/components/tools/tools.scss":
+/*!************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/sass-loader/lib/loader.js!./src/components/tools/tools.scss ***!
+  \************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".tools img {\n  cursor: pointer;\n  margin-right: 8px;\n  margin-top: 8px;\n  transition-duration: 0.4s; }\n\n.tools img:active {\n  opacity: 1;\n  transition: 0s; }\n\n.tools img:after {\n  content: '';\n  background: #90ee90;\n  display: block;\n  position: absolute;\n  padding-top: 300%;\n  padding-left: 350%;\n  margin-left: -20px !important;\n  margin-top: -120%;\n  opacity: 0;\n  transition: all 0.8s; }\n", ""]);
 
 // exports
 
@@ -20600,7 +20638,7 @@ function controller() {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=main-wrapper class=row> <div class=col-lg-3> <sidebar item-select-handle=self.itemSelectHandle root-node=self.rootNode> </sidebar> </div> <div class=main style=margin-left:26%;width:75%> <navbar></navbar> <tools></tools> <explorer></explorer> </div> </div>";
+module.exports = "<div id=main-wrapper class=row> <div class=col-lg-3> <sidebar item-select-handle=self.itemSelectHandle root-node=self.rootNode> </sidebar> </div> <div class=main style=margin-left:26%;width:75%> <navbar></navbar> <explorer></explorer> </div> </div>";
 
 /***/ }),
 
@@ -20711,8 +20749,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _libs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../libs */ "./src/libs/index.js");
 /* harmony import */ var _navbar_template_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./navbar.template.html */ "./src/components/navbar/navbar.template.html");
 /* harmony import */ var _navbar_template_html__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_navbar_template_html__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _navbar_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./navbar.scss */ "./src/components/navbar/navbar.scss");
+/* harmony import */ var _navbar_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_navbar_scss__WEBPACK_IMPORTED_MODULE_2__);
 
- // import './navbar.scss'
+
 
 const name = 'navbar';
 
@@ -20726,6 +20766,36 @@ function controller() {
 
 /***/ }),
 
+/***/ "./src/components/navbar/navbar.scss":
+/*!*******************************************!*\
+  !*** ./src/components/navbar/navbar.scss ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader!../../../node_modules/sass-loader/lib/loader.js!./navbar.scss */ "./node_modules/css-loader/index.js!./node_modules/sass-loader/lib/loader.js!./src/components/navbar/navbar.scss");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./src/components/navbar/navbar.template.html":
 /*!****************************************************!*\
   !*** ./src/components/navbar/navbar.template.html ***!
@@ -20733,7 +20803,7 @@ function controller() {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=navbar> djsaflksjdl </div>";
+module.exports = "<div class=navbar> <div class=topnav> <a href=#about>Server: </a> <div class=search-container> <form action=/action_page.php> <input type=text placeholder=Search.. name=search> <button type=submit> <img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADUSURBVDhPrdExC0FRGIDha0NJYZSyKmWRnWS1yG+QMvgbstzZqAw2EwuDMsmm5BcoGSwkxPudM93bOTfkrSffJ87V4VgKI6nHz6tihSdeOKKPOAJr4Q75cB5p1LHDFgkYy+GBhtq8RbDGUG2GXEz0aKwIOdx4D0t09GjthIoevS3Q1aOxEM4oqc1XD3M9GivjipjafGVxQVtt3lLYQx5grYkbRqhBfqIcdoD851PIzVsrYAy5HPmZG8hFziAHyGvgAaai+NsBA3nj2+SJ8sWM2n7Pcd5g1CpWzp0itQAAAABJRU5ErkJggg==\"> </button> </form> </div> <div style=float:right;margin-right:20px> <tools></tools> </div> </div> </div>";
 
 /***/ }),
 
@@ -20898,8 +20968,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _libs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../libs */ "./src/libs/index.js");
 /* harmony import */ var _tools_template_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tools.template.html */ "./src/components/tools/tools.template.html");
 /* harmony import */ var _tools_template_html__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tools_template_html__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _tools_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tools.scss */ "./src/components/tools/tools.scss");
+/* harmony import */ var _tools_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_tools_scss__WEBPACK_IMPORTED_MODULE_2__);
 
- // import './tools.scss'
+
 
 const name = 'tools';
 
@@ -20913,6 +20985,36 @@ function controller() {
 
 /***/ }),
 
+/***/ "./src/components/tools/tools.scss":
+/*!*****************************************!*\
+  !*** ./src/components/tools/tools.scss ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader!../../../node_modules/sass-loader/lib/loader.js!./tools.scss */ "./node_modules/css-loader/index.js!./node_modules/sass-loader/lib/loader.js!./src/components/tools/tools.scss");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./src/components/tools/tools.template.html":
 /*!**************************************************!*\
   !*** ./src/components/tools/tools.template.html ***!
@@ -20920,7 +21022,7 @@ function controller() {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=tools> sdlkajf </div>";
+module.exports = "<div class=tools> <img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGGSURBVEhLYyAV2PfvF3BvP+aCjEFiUGnaAY+O4zaJMy986th67z0Ip8y59AEkBpWmHQBZ0rX13sf7H/79B+FJux+/H7WYJmDU4lGLaQZGLR61mGIQWn+FzavzxDbf7pPfkmZdfIKMFx17/gNm8crTr76jy/v2nPoG0gsyA2ocaQCkMWTS6cMrTr+CW0QIg9SGAfWQbSkMgAwInXTmKDGWrzrz+gdILcWWwgDMcpDB2CwEYapbCgMgA0Mmnjm2GovlIDGQHNUthQGPidvY0S0HscOAPgXJQZURB9Abb25tx1SgUlgByIIwkOVn3/wAYRCbkKXu7ccVkO0ANw5BeRDWeKtYcfNzSP+pyVD1OAHMcmIsBYHQSWfbQGajNA6RC4Q9Nz7+D514eipUPV5gX7+fA4ShXLwgYsq5DpDZIDvgBQ65FpMCiLI4sP/0uegp5zqpiUMmnj6B1+Krr379337lPU0wyGycFtMDo1icNvfSh0m7H76lB85acOUd2GJsnTBaY/v+/QIAda4WsAfMjFkAAAAASUVORK5CYII=\"> <img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE0SURBVEhLYyAX2Nfv5wBhKJc+wGPiNvawiWeOgTCIDRWmLYBZuvrsmx8gTBfLQRaEgCw98/rH/Q///oMwiB026cxRmlkeWn+FDd1SZMtBciA1UOXUASADQ4G+WoXFUhgGyYHUUM1ymKUrTr/CaSkMU81ykAEhk04fJsZSGAapDQPqIdtykEavzhPbfLtPfkuadfEJMl507DncIStPv/qOLu/bc+obSC/FPkcGHh3Hbbq23vsIs3jS7sfvQWJQadqBUYtHLaYZGLV41GKagZFpcdrcSx8m7X74FoSzFlx5RxeL7fv3C7i3H3NBxiAxqPQQAB4dJ2QiJp9tj55yrpMeGGQXyE5wnJWtuP51+5X3/+mBa9be/gxOEyACOZXSGsNzAYhATqW0xvBcgC2V0hrb9+8XAABYCqhXSbtcKgAAAABJRU5ErkJggg==\"> </div>";
 
 /***/ }),
 

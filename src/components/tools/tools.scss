@@ -1,0 +1,26 @@
+.tools {
+  img {
+    cursor: pointer;
+    margin-right: 8px;
+    margin-top: 8px;
+    transition-duration: 0.4s;
+  }
+
+  img:active {
+    opacity: 1;
+    transition: 0s;
+  }
+
+  img:after {
+    content: '';
+    background: #90ee90;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s;
+  }
+}

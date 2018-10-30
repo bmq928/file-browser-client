@@ -1,6 +1,6 @@
 import { ComponentSchema } from '../../libs'
 import template from './navbar.template.html'
-// import './navbar.scss'
+import './navbar.scss'
 
 const name = 'navbar'
 

@@ -5,13 +5,11 @@ import './explorer.scss'
 const name = 'explorer'
 
 function controller() {
-    const self = this
+  const self = this
 
-    self.$onInit = function() {
-        
-    }
-
+  self.$onInit = function() {
     
+  }
 }
 
 export default new ComponentSchema(name, template, controller)

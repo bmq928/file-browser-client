@@ -9,7 +9,6 @@ function controller() {
 
   self.$onInit = function() {
     preProcess()
-    init()
   }
 
   self.toggleShowSubtree = function() {
@@ -35,12 +34,12 @@ function controller() {
 
   function preProcess() {
     //for filter
-    self.showSub = true
-    self._files = self.files
-    self._folders = self.folders
+    self.showSub = false
+    // self._files = self.files
+    // self._folders = self.folders
+    self._files = []
+    self._folders = []
   }
-
-  function init() {}
 }
 
 export default new ComponentSchema(name, template, controller, {

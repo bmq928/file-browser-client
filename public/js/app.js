@@ -20614,6 +20614,10 @@ function controller() {
   self.itemSelectHandle = function (items) {
     self.listFile = items.files;
     self.listFolder = items.folders;
+    console.log({
+      listFile: self.listFile,
+      listFolder: self.listFolder
+    });
   };
 
   function preProcess() {
@@ -20623,7 +20627,8 @@ function controller() {
   }
 
   function init() {
-    self.rootNode = self.rootNode = new Node('root', true, [new Node('sub', false, [new Node('sub-sub')])], [new Node('sub-sub', false, [new Node('sub-sub')], [new Node('sub-sub')]), new Node('sub-sub'), new Node('sub-sub')]);
+    self.rootNode = self.rootNode = new Node('root', false, [new Node('sub', true)], [new Node('sub-sub', false, [new Node('sub-sub')], [new Node('sub-sub')]), new Node('sub-sub', false), new Node('sub-sub', false)]);
+    console.log(self.rootNode);
   }
 }
 
@@ -20638,7 +20643,7 @@ function controller() {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=main-wrapper class=row> <div class=col-lg-3> <sidebar item-select-handle=self.itemSelectHandle root-node=self.rootNode> </sidebar> </div> <div class=main style=margin-left:22%;width:79%> <navbar></navbar> <explorer></explorer> </div> </div>";
+module.exports = "<div id=main-wrapper class=row> <div class=col-lg-3> <sidebar item-select-handle=self.itemSelectHandle root-node=self.rootNode> </sidebar> </div> <div class=main style=margin-left:22%;width:79%> <navbar></navbar> <explorer list-file=self.listFile list-folder=self.listFolder> </explorer> </div> </div>";
 
 /***/ }),
 
@@ -20664,10 +20669,18 @@ const name = 'explorer';
 function controller() {
   const self = this;
 
-  self.$onInit = function () {};
+  self.$onInit = function () {
+    console.log({
+      'self.listFile': self.listFile,
+      'self.listFolder': self.listFolder
+    });
+  };
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (new _libs__WEBPACK_IMPORTED_MODULE_0__["ComponentSchema"](name, _explorer_template_html__WEBPACK_IMPORTED_MODULE_1___default.a, controller));
+/* harmony default export */ __webpack_exports__["default"] = (new _libs__WEBPACK_IMPORTED_MODULE_0__["ComponentSchema"](name, _explorer_template_html__WEBPACK_IMPORTED_MODULE_1___default.a, controller, {
+  listFile: '<',
+  listFolder: '<'
+}));
 
 /***/ }),
 
@@ -20708,7 +20721,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=explorer> <div class=left> <div class=\"top-droppable folder tooltiper tooltiper-up folder\" data-tooltip=\"0 file\"><i class=\"fa fa-folder\" aria-hidden=true></i><i class=\"fa fa-check\" aria-hidden=true></i> <p>Folder 1</p> </div> <div class=\"top-droppable folder tooltiper tooltiper-up file\" data-tooltip=\"0 file\"><i class=\"fa fa-file\" aria-hidden=true></i><i class=\"fa fa-check\" aria-hidden=true></i> <p>Folder 5</p> </div> </div> </div>";
+module.exports = "<div class=explorer> <div class=left> <div class=\"top-droppable folder tooltiper tooltiper-up folder\" data-tooltip=\"0 file\" ng-repeat=\"folder in self.listFolder track by $index\"> <i class=\"fa fa-folder\" aria-hidden=true></i> <i class=\"fa fa-check\" aria-hidden=true></i> <p ng-bind=folder.rootName></p> </div> <div class=\"top-droppable folder tooltiper tooltiper-up file\" data-tooltip=\"0 file\" ng-repeat=\"file in self.listFile track by $index\"> <i class=\"fa fa-file\" aria-hidden=true></i> <i class=\"fa fa-check\" aria-hidden=true></i> <p ng-bind=file.rootName></p> </div> </div> </div>";
 
 /***/ }),
 
@@ -20829,7 +20842,6 @@ function controller() {
 
   self.$onInit = function () {
     preProcess();
-    init();
   };
 
   self.toggleShowSubtree = function () {
@@ -20854,12 +20866,12 @@ function controller() {
 
   function preProcess() {
     //for filter
-    self.showSub = true;
-    self._files = self.files;
-    self._folders = self.folders;
-  }
+    self.showSub = false; // self._files = self.files
+    // self._folders = self.folders
 
-  function init() {}
+    self._files = [];
+    self._folders = [];
+  }
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (new _libs__WEBPACK_IMPORTED_MODULE_0__["ComponentSchema"](name, _node_template_html__WEBPACK_IMPORTED_MODULE_1___default.a, controller, {

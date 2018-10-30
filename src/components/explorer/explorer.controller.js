@@ -8,8 +8,11 @@ function controller() {
   const self = this
 
   self.$onInit = function() {
-    
+    console.log({'self.listFile': self.listFile, 'self.listFolder': self.listFolder})
   }
 }
 
-export default new ComponentSchema(name, template, controller)
+export default new ComponentSchema(name, template, controller, {
+  listFile: '<',
+  listFolder: '<'
+})

@@ -23,7 +23,7 @@ function controller() {
   self.itemSelectHandle = function(items) {
     self.listFile = items.files
     self.listFolder = items.folders
-    
+    console.log({listFile: self.listFile, listFolder: self.listFolder})
   }
 
   function preProcess() {
@@ -35,8 +35,8 @@ function controller() {
   function init() {
     self.rootNode = self.rootNode = new Node(
       'root',
-      true,
-      [new Node('sub', false, [new Node('sub-sub')])],
+      false,
+      [new Node('sub', true)],
       [
         new Node(
           'sub-sub',
@@ -44,11 +44,14 @@ function controller() {
           [new Node('sub-sub')],
           [new Node('sub-sub')]
         ),
-        new Node('sub-sub'),
-        new Node('sub-sub')
+        new Node('sub-sub', false),
+        new Node('sub-sub', false)
       ]
     )
+
+    console.log(self.rootNode)
   }
+
 }
 
 export default new ComponentSchema(name, template, controller)
